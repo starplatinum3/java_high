@@ -66,8 +66,21 @@ public class ZzToHz {
 //        List<String >words=new ArrayList<>();
         List<String> list = new ArrayList<>();
 //        Set<String> words = new TreeSet<>();
-        while (scanner.hasNext()) {
-            String word = scanner.next();
+        String s = scanner.nextLine();
+        scanner.close();
+        s = s.replace("+", " + ");
+        s = s.replace("-", " - ");
+        s = s.replace("*", " * ");
+        s = s.replace("/", " / ");
+        s = s.replace("(", " ( ");
+        s = s.replace(")", " ) ");
+
+//        ( 2 + 5 ) * 3 - 5         *  7
+        Scanner scannerFromStr = new Scanner(s);
+//        while (scanner.hasNext()) {
+        while (scannerFromStr.hasNext()) {
+//            String word = scanner.next();
+            String word = scannerFromStr.next();
 //            StringUtils.
 //            java strip
 //            https://www.cnblogs.com/Peter2014/p/12710531.html
@@ -138,3 +151,9 @@ public class ZzToHz {
 
     }
 }
+
+//class Main {
+//    public static void main(String[] args) {
+//        new ZzToHz().zzToHz();
+//    }
+//}

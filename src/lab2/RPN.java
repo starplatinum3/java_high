@@ -18,31 +18,76 @@ public class RPN {
 //        List<String >words=new ArrayList<>();
 //        Set<String> words = new TreeSet<>();
         String s = scanner.nextLine();
+        scanner.close();
+       s=s.replace("+"," +");
+       s=s.replace("-"," -");
+       s=s.replace("*"," *");
+       s=s.replace("/"," /");
+//       s=s.replace("+"," +");
+//        String[] s1 = s.split(" ");
         String[] s1 = s.split(" ");
-        System.out.println("s1");
-        System.out.println(Arrays.toString(s1));
-        for (String ch : s1) {
-//            ch=ch.trim();
-//            不能 ==  比较字符串，
-            if (ch.equals("+")) {
-                st[tp - 1] = st[tp - 1] + st[tp];
-                tp--;
-            } else if (ch.equals("-")) {
-                st[tp - 1] = st[tp - 1] - st[tp];
-                tp--;
-            } else if (ch.equals("*")) {
-                st[tp - 1] = st[tp - 1] * st[tp];
-                tp--;
-            } else if (ch.equals("/")) {
-                st[tp - 1] = st[tp - 1] / st[tp];
-                tp--;
-            } else {
+//        System.out.println("s1");
+//        System.out.println(Arrays.toString(s1));
+//        for (String ch : s1) {
+//
+//        }
+        Scanner scannerFromStr=new Scanner(s);
+        while (scannerFromStr.hasNext()){
+            String next = scannerFromStr.next();
+            try{
+                Integer integer = Integer.valueOf(next);
                 tp++;
-//                st[tp]=stoi(ch);
-                st[tp] = Integer.parseInt(ch);
+                st[tp] = integer;
+            }catch (Exception e){
+                String  ch=next;
+                if (ch.equals("+")) {
+                    st[tp - 1] = st[tp - 1] + st[tp];
+                    tp--;
+//                少了一个 往里面缩进去 所以是 st[tp - 1] =
+                } else if (ch.equals("-")) {
+                    st[tp - 1] = st[tp - 1] - st[tp];
+                    tp--;
+                } else if (ch.equals("*")) {
+                    st[tp - 1] = st[tp - 1] * st[tp];
+                    tp--;
+                } else if (ch.equals("/")) {
+                    st[tp - 1] = st[tp - 1] / st[tp];
+                    tp--;
+                }
             }
 
+
         }
+
+
+//        for (int i = 0; i < s.length(); i++) {
+////            char ch=s.charAt(i);
+//            String  ch=s.charAt(i)+"";
+////        }
+////        for (String ch : s) {
+////            ch=ch.trim();
+////            不能 ==  比较字符串，
+//            if (ch.equals("+")) {
+//                st[tp - 1] = st[tp - 1] + st[tp];
+//                tp--;
+////                少了一个 往里面缩进去 所以是 st[tp - 1] =
+//            } else if (ch.equals("-")) {
+//                st[tp - 1] = st[tp - 1] - st[tp];
+//                tp--;
+//            } else if (ch.equals("*")) {
+//                st[tp - 1] = st[tp - 1] * st[tp];
+//                tp--;
+//            } else if (ch.equals("/")) {
+//                st[tp - 1] = st[tp - 1] / st[tp];
+//                tp--;
+//            } else {
+//                if(ch.equals(" "))continue;;
+//                tp++;
+////                st[tp]=stoi(ch);
+//                st[tp] = Integer.parseInt(ch);
+//            }
+//
+//        }
 
 //        s1
 //                [31, 11, +, 567, *, 333, -]
@@ -51,8 +96,8 @@ public class RPN {
         int res = 31 + 11;
         res *= 567;
         res -= 333;
-        System.out.println("res");
-        System.out.println(res);
+//        System.out.println("res");
+//        System.out.println(res);
 
 //        31 11 + 567 * 333 -
 //                s1
@@ -102,8 +147,48 @@ public class RPN {
         System.out.println(st[1]);
     }
 
+    int test1(String  s,int tp){
+        for (int i = 0; i < s.length(); i++) {
+//            char ch=s.charAt(i);
+            String  ch=s.charAt(i)+"";
+//        }
+//        for (String ch : s) {
+//            ch=ch.trim();
+//            不能 ==  比较字符串，
+            if (ch.equals("+")) {
+                st[tp - 1] = st[tp - 1] + st[tp];
+                tp--;
+//                少了一个 往里面缩进去 所以是 st[tp - 1] =
+            } else if (ch.equals("-")) {
+                st[tp - 1] = st[tp - 1] - st[tp];
+                tp--;
+            } else if (ch.equals("*")) {
+                st[tp - 1] = st[tp - 1] * st[tp];
+                tp--;
+            } else if (ch.equals("/")) {
+                st[tp - 1] = st[tp - 1] / st[tp];
+                tp--;
+            } else {
+                if(ch.equals(" "))continue;;
+                tp++;
+//                st[tp]=stoi(ch);
+                st[tp] = Integer.parseInt(ch);
+            }
+
+        }
+        return tp;
+
+    }
     public static void main(String[] args) {
 
+        new RPN().nibolan();
+    }
+}
+
+//ac
+class Main{
+    public static void main(String[] args) {
+//        System.out.println("1");
         new RPN().nibolan();
     }
 }
