@@ -11,6 +11,12 @@ import java.util.Scanner;
 /*
 
  */
+
+import java.lang.reflect.Field;
+import java.util.*;
+import java.util.Map.Entry;
+
+
 public class CntNum {
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
         Scanner scanner = new Scanner(System.in);
@@ -31,21 +37,30 @@ public class CntNum {
 
         Map.Entry<Integer, Integer> head = MapUtil.getHead(integerIntegerLinkedHashMap);
         Map.Entry<Integer, Integer> tailByReflection = MapUtil.getTailByReflection(integerIntegerLinkedHashMap);
-        System.out.println("head");
-        System.out.println(head);
+//        System.out.println("head");
+//        System.out.println(head);
         integerIntegerLinkedHashMap.forEach((k, v) -> {
             if (v.equals(head.getValue())) {
 //                System.out.println(k+" : "+v+" , ");
-                System.out.println(String.format("数字: %d , 几次 : %d", k, v));
+//                System.out.println(String.format("数字: %d , 几次 : %d", k, v));
+                System.out.println(String.format("Number %d occurred most:%d", k, v));
+//                Number 4 occurred most:2
+//
             }
         });
 
-        System.out.println("tailByReflection");
-        System.out.println(tailByReflection);
+//        System.out.println("tailByReflection");
+//        System.out.println(tailByReflection);
 
 //        for ()
 //        integerIntegerLinkedHashMap.for
     }
+}
+
+class Main{
+  public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
+      CntNum.main(args);
+  }
 }
 
 //1 2 3 4 6 7 8 9 1 2 3 4

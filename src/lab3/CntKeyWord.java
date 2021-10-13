@@ -2,7 +2,46 @@ package lab3;
 
 import java.util.*;
 
+// class Flag {
+//    int quatationFlag = 0;
+//    int cmtFlag = 0;
+//    int lineCmtFlag = 0;
+//
+//    public int getQuatationFlag() {
+//        return quatationFlag;
+//    }
+//
+//    public void setQuatationFlag(int quatationFlag) {
+//        this.quatationFlag = quatationFlag;
+//    }
+//
+//    public int getCmtFlag() {
+//        return cmtFlag;
+//    }
+//
+//    public void setCmtFlag(int cmtFlag) {
+//        this.cmtFlag = cmtFlag;
+//    }
+//
+//    public int getLineCmtFlag() {
+//        return lineCmtFlag;
+//    }
+//
+//    public void setLineCmtFlag(int lineCmtFlag) {
+//        this.lineCmtFlag = lineCmtFlag;
+//    }
+//
+//    public Flag(int quatationFlag, int cmtFlag, int lineCmtFlag) {
+//        this.quatationFlag = quatationFlag;
+//        this.cmtFlag = cmtFlag;
+//        this.lineCmtFlag = lineCmtFlag;
+//    }
+//}
+
 public class CntKeyWord {
+
+
+
     static String[] keywordString = {"abstract", "finally", "public",
             "boolean", "float", "return", "break", "for", "short", "byte",
             "goto", "static", "case", "if", "super", "catch", "implements",
@@ -27,6 +66,7 @@ public class CntKeyWord {
 //        }
 
         if (str.equals("\"")) {
+//            开始了字符串 我们就不计数了
             if (flag.getQuatationFlag() == 0) {
 //                quatationFlag = 1;
                 flag.setQuatationFlag(1);
@@ -81,7 +121,8 @@ public class CntKeyWord {
 ////            lineCmtFlag=0;
 //            flag.setLineCmtFlag(0);
 //        }
-
+//嵌套的情况。。 没有考虑过 不过好像代码通过了
+//        不是关键词
         if (!tokens.contains(str)) {
             return;
         }
@@ -115,8 +156,10 @@ public class CntKeyWord {
         }
         String[] split = line.split(" ");
         for (String str : split) {
+//            注释前面的每一个单词
             parseSplits(str, flag, tokens, map);
         }
+//        一行结束 ，下一行默认不是注释  是注释的话 ，也会被indexOf("//")
         flag.setLineCmtFlag(0);
 
     }
@@ -220,8 +263,19 @@ public class CntKeyWord {
 //            }
 //            注释结束
         }
-        System.out.println("map");
-        System.out.println(map);
+//        System.out.println("map");
+//        System.out.println(map);
+        int cnt=0;
+//        map.forEach((k,v)->cnt+=v);
+//        https://www.cnblogs.com/bingyimeiling/p/10741761.html
+        // 1. entrySet遍历，在键和值都需要时使用（最常用）
+        for (Map.Entry<String , Integer> entry : map.entrySet()) {
+//            System.out.println("key = " + entry.getKey() + ", value = " + entry.getValue());
+            cnt+=entry.getValue();
+        }
+//        for()
+        System.out.println("keywords:"+cnt);
+
     }
     public static void main(String[] args) {
 //        testSub();
@@ -230,3 +284,9 @@ public class CntKeyWord {
         cntKeyWords();
     }
 }
+
+//class  Main{
+//    public static void main(String[] args) {
+//        CntKeyWord.main(args);
+//    }
+//}
