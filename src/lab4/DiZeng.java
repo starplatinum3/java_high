@@ -35,3 +35,9 @@ public class DiZeng {
 	  return string.length()-st;
   }
 }
+
+class Main{
+	public static void main(String[] args) {
+		DiZeng.main(args);
+	}
+}

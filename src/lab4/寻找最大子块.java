@@ -5,6 +5,7 @@ import java.util.Scanner;
 //http://liveexample.pearsoncmg.com/dsanimation/LargestBlock.html
 //根据这里的 js 代码，翻译的java 代码
 //不知道怎么扩展到 长方形
+//是正方形 不是长方形
 public class 寻找最大子块 {
 //    int size;
 //    文档：14 5.note
@@ -22,23 +23,50 @@ public class 寻找最大子块 {
         int maxOfx=LargestBlockRes[0];
         int maxOfy=LargestBlockRes[1];
         int max=LargestBlockRes[2];
+        int len=LargestBlockRes[3];
         int maxOfxRight=0;
         int maxOfyRight=0;
-        for (int i = maxOfx; i <size ; i++) {
-            if(mat[i][maxOfy]==0){
-                maxOfxRight=i-1;
-                break;
-            }
-        }
 
-        for (int i = maxOfy; i <size ; i++) {
-            if(mat[maxOfx][i]==0){
-                maxOfyRight=i-1;
-                break;
+//        for (int i = maxOfx; i <size ; i++) {
+//            if(mat[i][maxOfy]==0){
+//                System.out.println("寻找maxOfxRight");
+//                System.out.println("i: "+i);
+//                maxOfxRight=i-1;
+//                break;
+//            }
+//        }
+//
+//        for (int i = maxOfy; i <size ; i++) {
+//            if(mat[maxOfx][i]==0){
+//                System.out.println("寻找maxOfyRight");
+//                System.out.println("i: "+i);
+//                maxOfyRight=i-1;
+//                break;
+//            }
+//        }
+
+
+//        System.out.println();
+//        ，输出左上角和右下角坐标。
+//        System.out.println(String.format("(%d,%d), (%d,%d)",maxOfx,maxOfy,maxOfxRight,maxOfyRight ));
+//        System.out.println(String.format("(%d,%d)(%d,%d)",maxOfx,maxOfy,maxOfxRight,maxOfyRight ));
+        System.out.println(String.format("(%d,%d)(%d,%d)",maxOfx,maxOfy,maxOfx+len-1,maxOfy+len-1 ));
+//        count[maxOfx][maxOfy]
+//        4
+    }
+
+    void findRightPoint(int leftX,int leftY){
+        for (int i = 1; i <9 ; i++) {
+
+        }
+    }
+
+    void findOfSize(int size,int leftX,int leftY){
+        for (int i = leftX; i < 10; i++) {
+            for (int j = leftY; j <10 ; j++) {
+
             }
         }
-//        ，输出左上角和右下角坐标。
-        System.out.println(String.format("(%d,%d), (%d,%d)",maxOfx,maxOfy,maxOfxRight,maxOfyRight ));
     }
   static   int[] findLargestBlock(int[][] m,int size) {
         int max = 0;
@@ -86,12 +114,22 @@ public class 寻找最大子块 {
                     }
                 }
 
-        int[] result = new int[3];
+//        int[] result = new int[3];
+        int[] result = new int[4];
         result[0] = maxOfx;
         result[1] = maxOfy;
         result[2] = max;
+        result[3] = count[maxOfx][maxOfy];
 
+//      System.out.println("count[maxOfx][maxOfy]");
+//      System.out.println(count[maxOfx][maxOfy]);
         return result;
     }
 
 }
+
+//class Main{
+//	public static void main(String[] args) {
+//		寻找最大子块.main(args);
+//	}
+//}
