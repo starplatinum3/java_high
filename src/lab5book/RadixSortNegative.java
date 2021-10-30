@@ -51,6 +51,8 @@ public class RadixSortNegative implements Sort {
 
             //将数据存储到临时数组temp中
             for (int i = arr.length - 1; i >= 0; i--) {
+                // 为什么-1 
+                // (arr[i] / exp) % 10 个位，现在筒子变成什么了
                 temp[buckets[(arr[i] / exp) % 10] - 1] = arr[i];
                 buckets[(arr[i] / exp) % 10]--;
             }
