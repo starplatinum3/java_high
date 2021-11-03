@@ -2,19 +2,17 @@ package lab5book;
 
 //import zucc.kinect.entity.RedPackage;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class RedPackageUtil {
+public class RandomUtil {
 
     public  static  int[] genLst(int size) {
         int[] list = new int[size];
         for (int i = 0; i < size; i++) {
-            list[i] = (int) RedPackageUtil.random(-999999999, 999999999);
+            list[i] = (int) RandomUtil.random(-999999999, 999999999);
         }
         return list;
     }
@@ -25,7 +23,7 @@ public class RedPackageUtil {
         Random random = new Random();
         for (int i = 0; i <size ; i++) {
 //            int rndInt = (int) RedPackageUtil.random(random, 0, 1111111);
-            int rndInt = (int) RedPackageUtil.random(random, low, up);
+            int rndInt = (int) RandomUtil.random(random, low, up);
 //      list.add((int) RedPackageUtil.random(random,0,1111111));
             arr[i] = rndInt;
         }
