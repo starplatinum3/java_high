@@ -36,6 +36,27 @@ public class StrUtil {
 //        return ret.toString().replace("+", "%20");
 //    }
 
+   static void testEmoji() throws UnsupportedEncodingException {
+//        byte[] bytes = "😀".getBytes("utf-32");
+       String emoji="oahdoah没带嗲😀";
+       System.out.println("emoji");
+       System.out.println(emoji);
+       System.out.println(emoji);
+//       emoji.
+//       java 判断是 表情字符还是
+//        byte[] bytes = "oahdoah没带嗲😀".getBytes("utf-32");
+//        System.out.println(getBytesCode(bytes));
+
+    }
+
+    private static String getBytesCode(byte[] bytes) {
+        StringBuilder code = new StringBuilder();
+        for (byte b : bytes) {
+            code.append("\\x").append(Integer.toHexString(b & 0xff));
+        }
+        return code.toString();
+    }
+
     public static String quotation(Object object) {
         return " '" + object + "' ";
     }
@@ -243,7 +264,8 @@ public class StrUtil {
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException {
-
+        testEmoji();
+//        \x0\x0\x0\x6f\x0\x0\x0\x61\x0\x0\x0\x68\x0\x0\x0\x64\x0\x0\x0\x6f\x0\x0\x0\x61\x0\x0\x0\x68\x0\x0\x6c\xa1\x0\x0\x5e\x26\x0\x0\x55\xf2\x0\x1\xf6\x0
 //        test2();
 //        test4();
     }
