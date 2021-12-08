@@ -12,3 +12,8 @@ java 高级实验报告
 avl 树
 文档：树的高度.note
 链接：http://note.youdao.com/noteshare?id=5c308a5eae4b8a393322be7d3758808a&sub=F76850892AA74E3F8D4A590CB7492CF1
+
+
+
+文档：启动这个项目.note
+链接：http://note.youdao.com/noteshare?id=484b86438822aca3b08950bbd3b0ba91&sub=3D3A05325B7B44EE81E1333C961D5E0C
